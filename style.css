@@ -1,207 +1,75 @@
-/* BASIC RESET */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { height: 100%; }
-
-/* BACKGROUND GALAXY — lebih terang dan lebih vivid */
+/* Full galaxy background */
 body {
-  font-family: Inter, Arial, sans-serif;
-  color: #eaeef6;
-
-  /* gambar galaxy */
-  background-image: url('cygnus-c1.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  position: relative;
-
-  /* hilangkan gelap berlebihan */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("cygnus-galaxy.jpg"); /* ganti dengan nama file gambar kamu */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    position: relative;
 }
 
-/* Overlay dibuat lebih TIPIS saja */
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  /* sebelum: rgba(0,0,0,0.55)
-     sekarang: lebih tipis: 0.25 */
-  background: rgba(0,0,0,0.25);
-
-  backdrop-filter: blur(2px);  /* blur kecil saja */
-  z-index: 0;
+/* DARK OVERLAY AGAR TEKS TERLIHAT */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.55); /* 55% gelap */
+    z-index: 1;
 }
 
 /* NAVBAR */
 .navbar {
-  width: 100%;
-  padding: 16px 40px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 3;
-
-  /* navbar lebih transparan agar background terlihat */
-  background: rgba(10,10,18,0.25);
-  backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
-.nav-brand {
-  font-weight: 800;
-  font-size: 20px;
-  background: linear-gradient(90deg,#fff,#c0d3ff);
-  -webkit-background-clip: text;
-  color: transparent;
+.navbar .logo {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
 }
 
-.nav-menu {
-  display: flex;
-  gap: 24px;
-  list-style: none;
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
 }
 
-.nav-menu a {
-  color: #f1f4ff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: .2s;
-}
-.nav-menu a:hover { color: #8ab8ff; }
-
-/* DASHBOARD */
-.dashboard {
-  position: relative;
-  z-index: 1;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 120px 30px 40px;
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
-/* CARD lebih transparan agar latar galaxy terlihat */
-.center-card {
-  width: 100%;
-  max-width: 960px;
-  padding: 32px;
-  border-radius: 16px;
-
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-
-  background: rgba(255,255,255,0.05); /* sebelumnya 0.05, biarkan */
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255,255,255,0.08);
+.navbar ul li a:hover {
+    color: #aa77ff;
 }
 
-@media (max-width: 760px) {
-  .center-card { grid-template-columns: 1fr; }
+/* CONTENT */
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 18%;
+    color: white;
 }
 
-/* COIN CIRCLE */
-.coin-circle {
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-
-  background-image: url('cygnus-c1.jpg');
-  background-size: cover;
-  background-position: center;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 6px solid rgba(255,255,255,0.12);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-  transition: .3s;
+.content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
 }
 
-.coin-circle:hover {
-  transform: scale(1.04) translateY(-6px);
-}
-
-.coin-label {
-  font-size: 24px;
-  font-weight: 800;
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 3px 10px rgba(0,0,0,0.8);
-}
-
-/* TEXT */
-.desc { text-align: center; }
-.title { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
-.subtitle { font-size: 14px; color: #e4e8ff; margin-bottom: 20px; }
-
-/* BUTTONS */
-.btn {
-  padding: 10px 18px;
-  border-radius: 12px;
-  display: inline-block;
-  cursor: pointer;
-  text-decoration: none;
-  font-weight: 700;
-  transition: .2s;
-  min-width: 160px;
-}
-
-.primary {
-  background: linear-gradient(90deg,#745bff,#49c5ff);
-  color: #000;
-}
-
-.ghost {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.18);
-  color: #fff;
-}
-
-.btn:hover { transform: translateY(-4px); }
-
-.cta-row {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.note {
-  margin-top: 14px;
-  font-size: 12px;
-  color: #e1e5ff;
-}
-
-.brand {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #dbe1ff;
-}
-
-/* SECTIONS (tokenomics, airdrop, whitepaper) */
-.section {
-  padding: 90px 20px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
-}
-
-.section-title {
-  font-size: 32px;
-  margin-bottom: 20px;
-  font-weight: 800;
-}
-
-.section-text {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #f0f4ff;
-  max-width: 650px;
-  margin: auto;
+.content p {
+    font-size: 22px;
 }
