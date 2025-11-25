@@ -1,23 +1,33 @@
 /* BASIC RESET */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; }
+
+/* BACKGROUND GALAXY — lebih terang dan lebih vivid */
 body {
   font-family: Inter, Arial, sans-serif;
   color: #eaeef6;
+
+  /* gambar galaxy */
   background-image: url('cygnus-c1.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   position: relative;
+
+  /* hilangkan gelap berlebihan */
 }
 
-/* DARK OVERLAY */
+/* Overlay dibuat lebih TIPIS saja */
 body::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(4px);
+
+  /* sebelum: rgba(0,0,0,0.55)
+     sekarang: lebih tipis: 0.25 */
+  background: rgba(0,0,0,0.25);
+
+  backdrop-filter: blur(2px);  /* blur kecil saja */
   z-index: 0;
 }
 
@@ -29,12 +39,15 @@ body::before {
   top: 0;
   left: 0;
   z-index: 3;
-  background: rgba(10,10,18,0.55);
-  backdrop-filter: blur(10px);
+
+  /* navbar lebih transparan agar background terlihat */
+  background: rgba(10,10,18,0.25);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .nav-brand {
@@ -57,10 +70,9 @@ body::before {
   font-weight: 600;
   transition: .2s;
 }
-
 .nav-menu a:hover { color: #8ab8ff; }
 
-/* MAIN DASHBOARD */
+/* DASHBOARD */
 .dashboard {
   position: relative;
   z-index: 1;
@@ -68,21 +80,24 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: 120px 30px 40px;
 }
 
-/* CARD */
+/* CARD lebih transparan agar latar galaxy terlihat */
 .center-card {
   width: 100%;
   max-width: 960px;
   padding: 32px;
   border-radius: 16px;
+
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 28px;
-  background: rgba(255,255,255,0.05);
-  backdrop-filter: blur(7px);
-  border: 1px solid rgba(255,255,255,0.07);
+
+  background: rgba(255,255,255,0.05); /* sebelumnya 0.05, biarkan */
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 @media (max-width: 760px) {
@@ -94,14 +109,17 @@ body::before {
   width: 340px;
   height: 340px;
   border-radius: 50%;
+
   background-image: url('cygnus-c1.jpg');
   background-size: cover;
   background-position: center;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 6px solid rgba(255,255,255,0.07);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+
+  border: 6px solid rgba(255,255,255,0.12);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
   transition: .3s;
 }
 
@@ -109,19 +127,18 @@ body::before {
   transform: scale(1.04) translateY(-6px);
 }
 
-/* TEXT INSIDE COIN */
 .coin-label {
   font-size: 24px;
   font-weight: 800;
-  text-align: center;
   color: #fff;
+  text-align: center;
   text-shadow: 0 3px 10px rgba(0,0,0,0.8);
 }
 
-/* RIGHT DESCRIPTION */
+/* TEXT */
 .desc { text-align: center; }
 .title { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
-.subtitle { font-size: 14px; color: #d3d6ff; margin-bottom: 20px; }
+.subtitle { font-size: 14px; color: #e4e8ff; margin-bottom: 20px; }
 
 /* BUTTONS */
 .btn {
@@ -148,21 +165,26 @@ body::before {
 
 .btn:hover { transform: translateY(-4px); }
 
-.cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.cta-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
 
 .note {
   margin-top: 14px;
   font-size: 12px;
-  color: #cdd3ff;
+  color: #e1e5ff;
 }
 
 .brand {
   margin-top: 10px;
   font-size: 12px;
-  color: #b7c3ff;
+  color: #dbe1ff;
 }
 
-/* OTHER SECTIONS */
+/* SECTIONS (tokenomics, airdrop, whitepaper) */
 .section {
   padding: 90px 20px;
   text-align: center;
@@ -179,9 +201,7 @@ body::before {
 .section-text {
   font-size: 16px;
   line-height: 1.6;
-  color: #e1e5ff;
+  color: #f0f4ff;
   max-width: 650px;
   margin: auto;
 }
-
-.center-btn { margin-top: 20px; }
