@@ -1,0 +1,187 @@
+/* BASIC RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  font-family: Inter, Arial, sans-serif;
+  color: #eaeef6;
+  background-image: url('cygnus-c1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* DARK OVERLAY */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  padding: 16px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background: rgba(10,10,18,0.55);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-brand {
+  font-weight: 800;
+  font-size: 20px;
+  background: linear-gradient(90deg,#fff,#c0d3ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: #f1f4ff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.nav-menu a:hover { color: #8ab8ff; }
+
+/* MAIN DASHBOARD */
+.dashboard {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 30px 40px;
+}
+
+/* CARD */
+.center-card {
+  width: 100%;
+  max-width: 960px;
+  padding: 32px;
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(7px);
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+@media (max-width: 760px) {
+  .center-card { grid-template-columns: 1fr; }
+}
+
+/* COIN CIRCLE */
+.coin-circle {
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background-image: url('cygnus-c1.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 6px solid rgba(255,255,255,0.07);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  transition: .3s;
+}
+
+.coin-circle:hover {
+  transform: scale(1.04) translateY(-6px);
+}
+
+/* TEXT INSIDE COIN */
+.coin-label {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.8);
+}
+
+/* RIGHT DESCRIPTION */
+.desc { text-align: center; }
+.title { font-size: 28px; font-weight: 800; margin-bottom: 10px; }
+.subtitle { font-size: 14px; color: #d3d6ff; margin-bottom: 20px; }
+
+/* BUTTONS */
+.btn {
+  padding: 10px 18px;
+  border-radius: 12px;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 700;
+  transition: .2s;
+  min-width: 160px;
+}
+
+.primary {
+  background: linear-gradient(90deg,#745bff,#49c5ff);
+  color: #000;
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+.btn:hover { transform: translateY(-4px); }
+
+.cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+
+.note {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #cdd3ff;
+}
+
+.brand {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #b7c3ff;
+}
+
+/* OTHER SECTIONS */
+.section {
+  padding: 90px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.section-title {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.section-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #e1e5ff;
+  max-width: 650px;
+  margin: auto;
+}
+
+.center-btn { margin-top: 20px; }
