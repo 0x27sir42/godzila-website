@@ -1,108 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZILA Token — Official Website</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZILA Presale & Airdrop</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Inter,sans-serif;
+background:radial-gradient(circle at top,#1b2cff,#0a0f2c 70%);
+color:#fff
+}
+header{text-align:center;padding:50px 20px}
+h1{
+font-size:3rem;
+font-weight:900;
+background:linear-gradient(90deg,#6cf3ff,#b36bff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent
+}
+.container{max-width:1200px;margin:auto;padding:20px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+video{
+width:100%;
+border-radius:22px;
+box-shadow:0 0 50px rgba(108,243,255,.4)
+}
+.card{
+background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.05));
+backdrop-filter:blur(14px);
+border-radius:26px;
+padding:34px
+}
+.card img{
+width:160px;
+filter:drop-shadow(0 0 30px rgba(108,243,255,.8))
+}
+.presale{
+margin-top:80px;
+padding:50px;
+border-radius:30px;
+background:linear-gradient(180deg,rgba(108,243,255,.18),rgba(179,107,255,.12))
+}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:22px
+}
+.box{
+background:rgba(0,0,0,.45);
+border-radius:20px;
+padding:22px;
+text-align:center
+}
+.box span{
+display:block;
+margin-top:8px;
+font-size:1.4rem;
+color:#6cf3ff;
+font-weight:700
+}
+input{
+width:100%;
+padding:14px;
+border-radius:14px;
+border:none;
+font-size:1rem;
+margin-top:12px
+}
+button{
+margin-top:20px;
+padding:16px 40px;
+font-size:1.1rem;
+font-weight:800;
+border-radius:999px;
+border:none;
+cursor:pointer;
+color:#0a0f2c;
+background:linear-gradient(90deg,#6cf3ff,#b36bff);
+box-shadow:0 12px 45px rgba(179,107,255,.6)
+}
+footer{
+margin-top:90px;
+padding:40px 20px;
+text-align:center;
+background:rgba(0,0,0,.45)
+}
+footer a{color:#6cf3ff;margin:0 12px;text-decoration:none;font-weight:600}
+@media(max-width:768px){.hero{grid-template-columns:1fr}}
+</style>
 </head>
 
 <body>
 
 <header>
-    <h1>ZILA Token — Dark AI Ecosystem</h1>
-    <nav>
-        <a href="tokenomics.html">Tokenomics</a>
-        <a href="mechanism.html">Mechanism</a>
-        <a href="roadmap.html">Roadmap</a>
-        <a href="whitepaper.html">Whitepaper</a>
-    </nav>
+<h1>ZILA Presale & Airdrop</h1>
+<p>Bright • 3D • AI-Powered Blockchain Token</p>
 </header>
 
-<main>
+<div class="container">
 
 <section class="hero">
-    <div class="coin-circle">
-        <img src="zilacoy.jpg" alt="ZILA Token" class="coin-img">
-    </div>
+<video autoplay muted loop>
+<source src="Video tanpa judul.mp4" type="video/mp4">
+</video>
 
-    <h2>Welcome to ZILA — Dark AI Future</h2>
-    <p>ZILA is an AI-powered token designed for security, automation, and unstoppable blockchain innovation.</p>
-
-    <br>
-    <h3>Smart Contract</h3>
-    <a class="contract-link" href="https://polygonscan.com/address/0xYourContractHere" target="_blank">
-        0xYourContractHere
-    </a>
+<div class="card">
+<img src="godzilaa.png">
+<h2>About ZILA</h2>
+<p>
+ZILA is an AI-native blockchain token powering intelligent automation,
+decentralized ecosystems, and future-ready innovation.
+</p>
+</div>
 </section>
 
-<section id="about" class="content">
-    <h2>What is ZILA Token?</h2>
-    <p>
-        ZILA is a decentralized digital asset focusing on Dark AI technology, automation, and high-security infrastructure.
-    </p>
+<section class="presale">
+<h2 style="text-align:center">Public Presale</h2>
 
-    <h3>Vision</h3>
-    <p>To become the most secure and innovative AI-driven token ecosystem in the blockchain industry.</p>
+<div class="grid">
+<div class="box">Price<span>$1 = 1000 ZILA</span></div>
+<div class="box">Min Buy<span>$5</span></div>
+<div class="box">Max Buy<span>$100</span></div>
+<div class="box">Allocation<span>5% of 1,000,000,000</span></div>
+</div>
 
-    <h3>Mission</h3>
-    <p>
-        • Build advanced Dark AI modules  
-        • Provide strong security and trust  
-        • Create a decentralized ecosystem focused on efficiency  
-    </p>
+<h3 style="margin-top:40px">Buy ZILA</h3>
+
+<input type="number" id="usd" placeholder="Enter USD amount ($2 - $100)" oninput="calcZila()">
+<p>You will receive: <b><span id="zila">0</span> ZILA</b></p>
+
+<button onclick="connectWallet()">Connect Wallet</button>
+<button onclick="buyZila()">Confirm Purchase</button>
+
+<p id="status" style="margin-top:15px;opacity:.85"></p>
+
 </section>
 
-<section id="tokenomics" class="content">
-    <h2>Tokenomics</h2>
-    <p>Total Supply: <strong>1,000,000,000 ZILA</strong></p>
-    <ul>
-        <li>Liquidity: 40%</li>
-        <li>Marketing: 25%</li>
-        <li>Development: 20%</li>
-        <li>Community & Airdrop: 15%</li>
-    </ul>
-</section>
-
-<section id="mechanism" class="content">
-    <h2>Mechanism</h2>
-    <p>
-        ZILA implements a transparent, automated, and AI-enhanced smart contract system assuring security and fair distribution.
-    </p>
-</section>
-
-<section id="roadmap" class="content">
-    <h2>Roadmap</h2>
-    <ul>
-        <li>Phase 1 — Launch & Community Growth</li>
-        <li>Phase 2 — Dark AI Development</li>
-        <li>Phase 3 — DEX/CEX Listing</li>
-        <li>Phase 4 — Global Expansion</li>
-    </ul>
-</section>
-
-<section id="whitepaper" class="content">
-    <h2>Whitepaper</h2>
-    <p>Click below to view the official ZILA documentation:</p>
-    <a href="whitepaper.html" class="btn-whitepaper">Open Whitepaper</a>
-</section>
-
-<section class="social">
-    <h2>Contact & Social Media</h2>
-
-    <div class="social-icons">
-        <a href="https://twitter.com/" target="_blank"><img src="twitter.png"></a>
-        <a href="https://t.me/" target="_blank"><img src="telegram.png"></a>
-        <a href="https://youtube.com/" target="_blank"><img src="youtube.png"></a>
-        <a href="https://linkedin.com/" target="_blank"><img src="linkedin.png"></a>
-    </div>
-</section>
-
-</main>
+</div>
 
 <footer>
-    © 2025 Zila Foundation — All Rights Reserved
+<p>Connect with ZILA</p>
+<a href="#">Support</a>
+<a href="#">Follow X</a>
+<a href="#">Discord</a>
+<a href="#">Telegram</a>
+<p style="margin-top:15px;font-size:.8rem;opacity:.7">© 2025 ZILA AI</p>
 </footer>
 
+<script>
+let userAddress=null;
+
+function calcZila(){
+let usd=document.getElementById("usd").value;
+document.getElementById("zila").innerText=usd*100||0;
+}
+
+async function connectWallet(){
+if(!window.ethereum){
+alert("Please install MetaMask");
+return;
+}
+const provider=new ethers.providers.Web3Provider(window.ethereum);
+const accounts=await provider.send("eth_requestAccounts",[]);
+userAddress=accounts[0];
+document.getElementById("status").innerText=
+"Wallet connected: "+userAddress.substring(0,6)+"..."+userAddress.slice(-4);
+}
+
+function buyZila(){
+let usd=document.getElementById("usd").value;
+if(!userAddress) return alert("Connect wallet first");
+if(usd<2||usd>500) return alert("Purchase must be between $2 and $500");
+alert(
+"Purchase recorded!\n\n"+
+"Wallet: "+userAddress+
+"\nUSD: $"+usd+
+"\nZILA: "+(usd*100)+
+"\n\n(Admin will confirm manually or via contract)"
+);
+}
+</script>
+
 </body>
-    </html>
+</html>
