@@ -1,194 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZILA Presale & Airdrop</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
-
-<style>
-*{box-sizing:border-box}
-body{
-margin:0;
-font-family:Inter,sans-serif;
-background:radial-gradient(circle at top,#1b2cff,#0a0f2c 70%);
-color:#fff
-}
-header{text-align:center;padding:50px 20px}
-h1{
-font-size:3rem;
-font-weight:900;
-background:linear-gradient(90deg,#6cf3ff,#b36bff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent
-}
-.container{max-width:1200px;margin:auto;padding:20px}
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-video{
-width:100%;
-border-radius:22px;
-box-shadow:0 0 50px rgba(108,243,255,.4)
-}
-.card{
-background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.05));
-backdrop-filter:blur(14px);
-border-radius:26px;
-padding:34px
-}
-.card img{
-width:160px;
-filter:drop-shadow(0 0 30px rgba(108,243,255,.8))
-}
-.presale{
-margin-top:80px;
-padding:50px;
-border-radius:30px;
-background:linear-gradient(180deg,rgba(108,243,255,.18),rgba(179,107,255,.12))
-}
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:22px
-}
-.box{
-background:rgba(0,0,0,.45);
-border-radius:20px;
-padding:22px;
-text-align:center
-}
-.box span{
-display:block;
-margin-top:8px;
-font-size:1.4rem;
-color:#6cf3ff;
-font-weight:700
-}
-input{
-width:100%;
-padding:14px;
-border-radius:14px;
-border:none;
-font-size:1rem;
-margin-top:12px
-}
-button{
-margin-top:20px;
-padding:16px 40px;
-font-size:1.1rem;
-font-weight:800;
-border-radius:999px;
-border:none;
-cursor:pointer;
-color:#0a0f2c;
-background:linear-gradient(90deg,#6cf3ff,#b36bff);
-box-shadow:0 12px 45px rgba(179,107,255,.6)
-}
-footer{
-margin-top:90px;
-padding:40px 20px;
-text-align:center;
-background:rgba(0,0,0,.45)
-}
-footer a{color:#6cf3ff;margin:0 12px;text-decoration:none;font-weight:600}
-@media(max-width:768px){.hero{grid-template-columns:1fr}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZILA Presale & Airdrop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #1b2cff, #0a0f2c 70%);
+      color: #ffffff;
+    }
+    header {
+      padding: 50px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      background: linear-gradient(90deg, #6cf3ff, #b36bff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header p { opacity: 0.9; }
+    .container { max-width: 1200px; margin: auto; padding: 20px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    video {
+      width: 100%;
+      border-radius: 22px;
+      box-shadow: 0 0 50px rgba(108,243,255,0.35);
+    }
+    .card {
+      background: linear-gradient(160deg, rgba(255,255,255,0.18), rgba(255,255,255,0.05));
+      backdrop-filter: blur(14px);
+      border-radius: 26px;
+      padding: 34px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.45);
+    }
+    .card img {
+      width: 160px;
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 30px rgba(108,243,255,0.8));
+    }
+    h2 { margin-top: 0; }
+    .presale {
+      margin-top: 80px;
+      padding: 50px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(108,243,255,0.18), rgba(179,107,255,0.12));
+    }
+    .presale h3 { text-align: center; font-size: 2.3rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+      gap: 22px;
+      margin-top: 30px;
+    }
+    .box {
+      background: rgba(0,0,0,0.4);
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+    }
+    .box span { display:block; margin-top:8px; font-size:1.4rem; color:#6cf3ff; font-weight:700; }
+    .progress {
+      margin: 40px 0;
+      background: rgba(0,0,0,0.4);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress div {
+      width: 35%;
+      height: 16px;
+      background: linear-gradient(90deg,#6cf3ff,#b36bff);
+    }
+    .actions { text-align:center; }
+    button {
+      margin-top: 20px;
+      padding: 16px 40px;
+      font-size: 1.1rem;
+      font-weight: 800;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      color: #0a0f2c;
+      background: linear-gradient(90deg,#6cf3ff,#b36bff);
+      box-shadow: 0 12px 45px rgba(179,107,255,0.6);
+    }
+    footer {
+      margin-top: 90px;
+      padding: 40px 20px;
+      text-align: center;
+      background: rgba(0,0,0,0.45);
+    }
+    footer a { color:#6cf3ff; margin:0 12px; text-decoration:none; font-weight:600; }
+    @media(max-width:768px){ .hero{grid-template-columns:1fr;} header h1{font-size:2.2rem;} }
+  </style>
 </head>
+<body><header>
+  <h1>ZILA Presale & Airdrop</h1>
+  <p>Bright • 3D • AI-Powered Blockchain Token</p>
+</header><div class="container"><!-- HERO SECTION --><section class="hero">
+  <video autoplay muted loop>
+    <source src="Video tanpa judul.mp4" type="video/mp4">
+  </video>  <div class="card">
+    <img src="godzilaa.png" alt="ZILA Token" style="width:160px;display:block;margin-bottom:20px;filter:drop-shadow(0 0 30px rgba(108,243,255,.8));">
+    <h2>ZILA – The AI Brain</h2>
+    <p>
+      ZILA is the core intelligence powering our ecosystem. We are currently
+      building an advanced AI system designed to automate, optimize, and
+      connect decentralized technologies.
+    </p>
+    <p>
+      While our AI is still in active development, ZILA already acts as the
+      <b>brain of our vision</b> — coordinating data, value, and innovation
+      across blockchain infrastructure.
+    </p>
+    <p>
+      By participating early, you are joining the foundation layer of an
+      AI-driven future.
+    </p>
+  </div>
+</section><!-- PRESALE SECTION --><section class="presale">
+  <h2 style="text-align:center">ZILA Public Presale</h2>
+  <p style="text-align:center;opacity:.85">
+    Early access to the intelligence layer of our AI ecosystem
+  </p>  <div class="grid">
+    <div class="box">Token Price<span>$1 = 2,000 ZILA</span></div>
+    <div class="box">Minimum Buy<span>$5</span></div>
+    <div class="box">Maximum Buy<span>$100</span></div>
+    <div class="box">Public Allocation<span>5% of Total Supply</span></div>
+  </div>  <h3 style="margin-top:40px">Buy ZILA</h3>  <input type="number" id="usd" placeholder="Enter USD amount ($5 - $100)" oninput="calc()">
+  <p>You will receive: <b><span id="zila">0</span> ZILA</b></p><button onclick="connect()">Connect Wallet</button> <button onclick="buy()">Buy ZILA</button>
 
-<body>
-
-<header>
-<h1>ZILA Presale & Airdrop</h1>
-<p>Bright • 3D • AI-Powered Blockchain Token</p>
-</header>
-
-<div class="container">
-
-<section class="hero">
-<video autoplay muted loop>
-<source src="Video tanpa judul.mp4" type="video/mp4">
-</video>
-
-<div class="card">
-<img src="godzilaa.png">
-<h2>About ZILA</h2>
-<p>
-ZILA is an AI-native blockchain token powering intelligent automation,
-decentralized ecosystems, and future-ready innovation.
-
-  FCFS 50 USER BUY 5$ Get 2× 
-</p>
-</div>
-</section>
-
-<section class="presale">
-<h2 style="text-align:center">Public Presale</h2>
-
-<div class="grid">
-<div class="box">Price<span>$1 = 1000 ZILA</span></div>
-<div class="box">Min Buy<span>$5</span></div>
-<div class="box">Max Buy<span>$100</span></div>
-<div class="box">Allocation<span>5% of 1,000,000,000</span></div>
-</div>
-
-<h3 style="margin-top:40px">Buy ZILA</h3>
-
-<input type="number" id="usd" placeholder="Enter USD amount ($3 - $100)" oninput="calcZila()">
-<p>You will receive: <b><span id="zila">1000</span> ZILA</b></p>
-
-<button onclick="connectWallet()">Connect Wallet</button>
-<button onclick="buyZila()">Confirm Purchase</button>
-
-<p id="status" style="margin-top:15px;opacity:.85"></p>
-
-</section>
-
-</div>
-
-<footer>
-<p>Connect with ZILA</p>
-<a href="#">Support</a>
-<a href="#">Follow X</a>
-<a href="#">Discord</a>
-<a href="#">Telegram</a>
-<p style="margin-top:15px;font-size:.8rem;opacity:.7">© 2025 ZILA AI</p>
-</footer>
-
-<script>
-let userAddress=null;
-
-function calcZila(){
-let usd=document.getElementById("usd").value;
-document.getElementById("zila").innerText=usd*100||0;
-}
-
-async function connectWallet(){
-if(!window.ethereum){
-alert("Please install MetaMask");
-return;
-}
-const provider=new ethers.providers.Web3Provider(window.ethereum);
-const accounts=await provider.send("eth_requestAccounts",[]);
-userAddress=accounts[0];
-document.getElementById("status").innerText=
-"Wallet connected: "+userAddress.substring(0,6)+"..."+userAddress.slice(-4);
-}
-
-function buyZila(){
-let usd=document.getElementById("usd").value;
-if(!userAddress) return alert("Connect wallet first");
-if(usd<2||usd>500) return alert("Purchase must be between $2 and $500");
-alert(
-"Purchase recorded!\n\n"+
-"Wallet: "+userAddress+
-"\nUSD: $"+usd+
-"\nZILA: "+(usd*100)+
-"\n\n(Admin will confirm manually or via contract)"
-);
-}
-</script>
-
-</body>
+  <p id="status" style="margin-top:15px;opacity:.85"></p>
+</section></div><footer>
+  <p>Stay Connected</p>
+  <a href="#">Support</a>
+  <a href="#">Follow X</a>
+  <a href="#">Discord</a>
+  <a href="#">Telegram</a>
+  <p style="margin-top:15px;font-size:.8rem;opacity:.7">© 2025 ZILA AI. All rights reserved.</p>
+</footer></body>
 </html>
